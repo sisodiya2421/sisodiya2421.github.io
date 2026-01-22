@@ -1,59 +1,127 @@
-.layout {
-  display: grid;
-  grid-template-columns: 55% 45%;
-  max-width: 1200px;
+:root {
+  --bg: #0b0e14;
+  --fg: #e6e6eb;
+  --muted: #9aa0aa;
+  --line: #1f2430;
+  --accent: #6e6eff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+.container {
+  max-width: 960px;
   margin: auto;
-  padding: 3rem 1.5rem;
+  padding: 3rem 1.5rem 4rem;
 }
 
-.left {
-  padding-right: 2rem;
+.header h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
 }
 
-.right {
-  position: relative;
-  overflow: hidden;
+.subtitle {
+  color: var(--muted);
+  margin-top: .3rem;
 }
 
-.actions {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  display: flex;
-  gap: .8rem;
+.summary {
+  margin-top: .8rem;
+  max-width: 560px;
+  color: #cfcfd6;
 }
 
-.pill {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: #e6e6eb;
-  padding: .45rem .9rem;
-  border-radius: 999px;
-  cursor: pointer;
+section {
+  margin-top: 3rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #d8d8df;
+}
+
+/* Timeline */
+.timeline {
+  border-left: 1px solid var(--line);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 110px 20px 1fr;
+  padding: .8rem 0 .8rem 0;
+}
+
+.time {
   font-size: .85rem;
-  backdrop-filter: blur(6px);
+  color: var(--muted);
 }
 
-.pill:hover {
-  border-color: #6e6eff;
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-top: .45rem;
 }
 
-.ground {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+.content strong {
+  display: block;
+  font-weight: 500;
 }
 
-.ground img {
-  height: 90px;
-  image-rendering: crisp-edges;
+.content span {
+  font-size: .9rem;
+  color: var(--muted);
 }
 
-.hint {
-  position: absolute;
-  bottom: .8rem;
-  left: 1rem;
-  font-size: .75rem;
-  opacity: .6;
+.content p {
+  margin-top: .4rem;
+  color: #c7c7cf;
+  max-width: 520px;
+}
+
+/* Skills */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.skills h3 {
+  font-size: .9rem;
+  font-weight: 500;
+  margin-bottom: .4rem;
+  color: #e1e1e8;
+}
+
+.skills p {
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+/* Education */
+.edu {
+  font-size: .95rem;
+  color: #d2d2d9;
+}
+
+.edu span {
+  display: block;
+  margin-top: .3rem;
+  color: var(--muted);
 }
