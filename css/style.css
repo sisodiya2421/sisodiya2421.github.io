@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: black;
+  color: white;
+  overflow-x: hidden;
+}
+
+canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+}
+
+/* Nebula */
+.nebula {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(120,0,255,.4), transparent 70%);
+  filter: blur(100px);
+  top: 20%;
+  left: 55%;
+  z-index: -2;
+  animation: drift 60s linear infinite;
+}
+
+@keyframes drift {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3.8rem;
+  text-shadow: 0 0 25px rgba(255,255,255,0.5);
+}
+
+.hero p {
+  opacity: 0.8;
+}
+
+/* Sections */
+.section {
+  padding: 6rem 12%;
+}
+
+.section h2 {
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+/* Glass card */
+.glass-card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+}
+
+.event {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.planet {
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #9b5cff, #4b0082);
+  border-radius: 50%;
+  box-shadow: 0 0 20px #9b5cff;
+}
+
+.planet.small { width: 20px; height: 20px; }
+.planet.tiny { width: 14px; height: 14px; }
+
+/* Skills */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skills span {
+  padding: .6rem 1rem;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  transition: .3s;
+}
+
+.skills span:hover {
+  box-shadow: 0 0 15px #8a2be2;
+}
+
+/* Footer */
+footer {
+  padding: 2rem;
+  text-align: center;
+  opacity: 0.6;
+}
