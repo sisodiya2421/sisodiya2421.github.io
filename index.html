@@ -4,23 +4,30 @@
   <meta charset="UTF-8" />
   <title>Abhishek Sisodiya</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 <canvas id="bg"></canvas>
 
+<button id="themeToggle">☾</button>
+
 <main class="container">
 
   <header class="header">
-    <h1>Abhishek Sisodiya</h1>
-    <p class="subtitle">
-      Software Engineer · AI Systems · Backend
-    </p>
-    <p class="summary">
-      Building data-driven platforms, ML systems, and scalable backend services.
-    </p>
+    <div>
+      <h1>Abhishek Sisodiya</h1>
+      <p class="subtitle">Software Engineer · AI Systems · Backend</p>
+      <p class="summary">
+        Software Engineer with 3+ years of experience building ML-driven platforms,
+        data pipelines, and scalable backend systems.
+      </p>
+    </div>
+
+    <button id="openTerminal" class="terminal-btn">
+      View Resume (Terminal)
+    </button>
   </header>
 
   <section>
@@ -34,7 +41,10 @@
         <div class="content">
           <strong>Tata Consultancy Services</strong>
           <span>Software Developer</span>
-          <p>ML-driven dashboards, DocAI platforms, automation at scale.</p>
+          <p>
+            Built ML dashboards, DocAI platforms, ETL pipelines, and automation
+            improving SLA compliance by up to 80%.
+          </p>
         </div>
       </div>
 
@@ -42,9 +52,12 @@
         <div class="time">2021 — 2022</div>
         <div class="dot"></div>
         <div class="content">
-          <strong>Weminte Services</strong>
+          <strong>Weminte Services Pvt Ltd</strong>
           <span>Software Developer Intern</span>
-          <p>Built and deployed a full-stack therapy booking platform.</p>
+          <p>
+            Designed and developed a full-stack counselling platform with payments,
+            notifications, and AWS deployment.
+          </p>
         </div>
       </div>
 
@@ -52,9 +65,12 @@
         <div class="time">2019 — 2021</div>
         <div class="dot"></div>
         <div class="content">
-          <strong>Estylo (IIT Delhi Startup)</strong>
+          <strong>Estylo Pvt Ltd (IIT Delhi Startup)</strong>
           <span>Software Developer Intern</span>
-          <p>Computer vision systems and microservices.</p>
+          <p>
+            Built AI-based body measurement systems, data scrapers, and backend
+            microservices.
+          </p>
         </div>
       </div>
 
@@ -63,22 +79,26 @@
 
   <section>
     <h2>Skills</h2>
+
     <div class="skills">
       <div>
         <h3>Backend</h3>
-        <p>Python, FastAPI, Django, Node.js</p>
+        <p>Python, FastAPI, Django, Flask, Node.js</p>
       </div>
+
       <div>
         <h3>AI / ML</h3>
-        <p>Machine Learning, Deep Learning, LLMs</p>
+        <p>Machine Learning, Deep Learning, LLMs, LangChain</p>
       </div>
+
       <div>
-        <h3>Cloud & Data</h3>
-        <p>AWS, GCP, PySpark, SQL, MongoDB</p>
+        <h3>Data & Cloud</h3>
+        <p>PySpark, SQL, MongoDB, AWS, GCP, Azure</p>
       </div>
+
       <div>
         <h3>Infra</h3>
-        <p>Docker, Kubernetes, Git</p>
+        <p>Docker, Kubernetes, Git, Bash</p>
       </div>
     </div>
   </section>
@@ -86,13 +106,20 @@
   <section>
     <h2>Education</h2>
     <div class="edu">
-      Integrated B.Tech + M.Tech · CSE (AI & Robotics)  
-      <span>Gautam Buddha University · 2017–2022</span>
+      Integrated B.Tech & M.Tech in CSE (AI & Robotics)
+      <span>Gautam Buddha University · 2017 — 2022 · CGPA 8.27</span>
     </div>
   </section>
 
 </main>
 
-<script src="js/bg.js"></script>
+<!-- TERMINAL -->
+<div id="terminal">
+  <pre id="terminalText"></pre>
+</div>
+
+<script src="bg.js"></script>
+<script src="theme.js"></script>
+<script src="terminal.js"></script>
 </body>
 </html>
