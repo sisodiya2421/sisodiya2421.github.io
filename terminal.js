@@ -1,13 +1,14 @@
 const terminal = document.getElementById("terminal");
 const textEl = document.getElementById("terminalText");
 const openBtn = document.getElementById("openTerminal");
+const closeBtn = document.getElementById("closeTerminal");
 
 const resume = `
 $ whoami
 Abhishek Sisodiya
 
 $ summary
-Software Engineer with 3+ years of experience in ML-driven systems,
+Software Engineer with 3+ years of experience in ML systems,
 automation, and backend engineering.
 
 $ experience
@@ -17,13 +18,12 @@ $ experience
 
 $ skills
 Python, FastAPI, Django, Node.js
-Machine Learning, Deep Learning, LLMs
-AWS, GCP, Docker, Kubernetes, PySpark
+Machine Learning, LLMs
+AWS, GCP, Docker, Kubernetes
 
 $ education
 Integrated B.Tech & M.Tech (CSE - AI & Robotics)
-Gautam Buddha University (2017–2022)
-CGPA: 8.27
+Gautam Buddha University
 `;
 
 openBtn.onclick = () => {
@@ -36,6 +36,5 @@ openBtn.onclick = () => {
   }, 12);
 };
 
-window.addEventListener("keydown", e => {
-  if (e.key === "Escape") terminal.style.display = "none";
-});
+closeBtn.onclick = () => terminal.style.display = "none";
+addEventListener("keydown", e => e.key === "Escape" && (terminal.style.display = "none"));
