@@ -3,84 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <title>Abhishek Sisodiya</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<canvas id="stars"></canvas>
+<canvas id="bg"></canvas>
 
-<div class="nebula"></div>
+<main class="container">
 
-<section class="hero">
-  <h1>Abhishek Sisodiya</h1>
-  <p>Software Engineer · AI · Backend</p>
-</section>
+  <header class="header">
+    <h1>Abhishek Sisodiya</h1>
+    <p class="subtitle">
+      Software Engineer · AI Systems · Backend
+    </p>
+    <p class="summary">
+      Building data-driven platforms, ML systems, and scalable backend services.
+    </p>
+  </header>
 
-<section class="section">
-  <h2>Education</h2>
-  <div class="glass-card">
-    <h3>Integrated B.Tech + M.Tech (CSE)</h3>
-    <p>Gautam Buddha University</p>
-    <span>Artificial Intelligence & Robotics (Specialization)</span>
-  </div>
-</section>
+  <section>
+    <h2>Experience</h2>
 
-<section class="section">
-  <h2>Experience Timeline</h2>
+    <div class="timeline">
 
-  <div class="timeline">
+      <div class="row">
+        <div class="time">2022 — Present</div>
+        <div class="dot"></div>
+        <div class="content">
+          <strong>Tata Consultancy Services</strong>
+          <span>Software Developer</span>
+          <p>ML-driven dashboards, DocAI platforms, automation at scale.</p>
+        </div>
+      </div>
 
-    <div class="event">
-      <div class="planet"></div>
-      <div class="event-content">
-        <h3>Tata Consultancy Services</h3>
-        <p>Software Developer · Jul 2022 – Present</p>
+      <div class="row">
+        <div class="time">2021 — 2022</div>
+        <div class="dot"></div>
+        <div class="content">
+          <strong>Weminte Services</strong>
+          <span>Software Developer Intern</span>
+          <p>Built and deployed a full-stack therapy booking platform.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">2019 — 2021</div>
+        <div class="dot"></div>
+        <div class="content">
+          <strong>Estylo (IIT Delhi Startup)</strong>
+          <span>Software Developer Intern</span>
+          <p>Computer vision systems and microservices.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills">
+      <div>
+        <h3>Backend</h3>
+        <p>Python, FastAPI, Django, Node.js</p>
+      </div>
+      <div>
+        <h3>AI / ML</h3>
+        <p>Machine Learning, Deep Learning, LLMs</p>
+      </div>
+      <div>
+        <h3>Cloud & Data</h3>
+        <p>AWS, GCP, PySpark, SQL, MongoDB</p>
+      </div>
+      <div>
+        <h3>Infra</h3>
+        <p>Docker, Kubernetes, Git</p>
       </div>
     </div>
+  </section>
 
-    <div class="event">
-      <div class="planet small"></div>
-      <div class="event-content">
-        <h3>Weminte Services</h3>
-        <p>Software Developer Intern · Nov 2021 – May 2022</p>
-      </div>
+  <section>
+    <h2>Education</h2>
+    <div class="edu">
+      Integrated B.Tech + M.Tech · CSE (AI & Robotics)  
+      <span>Gautam Buddha University · 2017–2022</span>
     </div>
+  </section>
 
-    <div class="event">
-      <div class="planet tiny"></div>
-      <div class="event-content">
-        <h3>Estylo (IIT Delhi Startup)</h3>
-        <p>Software Developer Intern · Dec 2019 – Aug 2021</p>
-      </div>
-    </div>
+</main>
 
-  </div>
-</section>
-
-<section class="section">
-  <h2>Skills</h2>
-  <div class="skills">
-    <span>Python</span>
-    <span>Machine Learning</span>
-    <span>LLMs</span>
-    <span>FastAPI</span>
-    <span>Django</span>
-    <span>React</span>
-    <span>Docker</span>
-    <span>Kubernetes</span>
-    <span>AWS</span>
-    <span>PySpark</span>
-  </div>
-</section>
-
-<footer>
-  <a href="https://github.com/">GitHub</a>
-  <a href="https://linkedin.com/">LinkedIn</a>
-</footer>
-
-<script src="js/stars.js"></script>
-<script src="js/reveal.js"></script>
+<script src="js/bg.js"></script>
 </body>
 </html>
