@@ -5,21 +5,25 @@ let w, h;
 let mouse = { x: 0, y: 0 };
 let stars = [];
 let shooters = [];
+let galaxies = [];
 
 function resize() {
   w = canvas.width = innerWidth;
   h = canvas.height = innerHeight;
-  initStars();
+  init();
 }
 addEventListener("resize", resize);
 addEventListener("mousemove", e => mouse = e);
 
-function initStars() {
+function init() {
   stars = [];
+  galaxies = [];
+
+  // Star layers (far → near)
   const layers = [
-    { count: 120, speed: 0.05, size: 0.6 }, // far
-    { count: 80, speed: 0.15, size: 1.2 },  // mid
-    { count: 40, speed: 0.3, size: 2.2 }    // near
+    { count: 180, size: 0.6, depth: 0.2 },
+    { count: 120, size: 1.2, depth: 0.5 },
+    { count: 60, size: 2.2, depth: 0.9 }
   ];
 
   layers.forEach(l =>
@@ -27,12 +31,21 @@ function initStars() {
       stars.push({
         x: Math.random() * w,
         y: Math.random() * h,
-        r: Math.random() * l.size + .2,
-        s: l.speed,
-        z: Math.random()
+        r: Math.random() * l.size + 0.2,
+        z: l.depth
       })
     )
   );
+
+  // Galaxy clusters
+  for (let i = 0; i < 6; i++) {
+    galaxies.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 120 + 80,
+      a: Math.random() * 0.06 + 0.03
+    });
+  }
 }
 
 function spawnShooter() {
@@ -46,17 +59,27 @@ function spawnShooter() {
 }
 
 function draw() {
-  ctx.clearRect(0,0,w,h);
+  ctx.clearRect(0, 0, w, h);
 
-  stars.forEach(s => {
-    const dx = (mouse.x - w/2) * s.z * 0.01;
-    const dy = (mouse.y - h/2) * s.z * 0.01;
-    ctx.fillStyle = `rgba(255,255,255,${0.15 + s.z * 0.4})`;
+  // Galaxies
+  galaxies.forEach(g => {
+    ctx.fillStyle = `rgba(120,120,255,${g.a})`;
     ctx.beginPath();
-    ctx.arc(s.x + dx, s.y + dy, s.r, 0, Math.PI*2);
+    ctx.arc(g.x, g.y, g.r, 0, Math.PI * 2);
     ctx.fill();
   });
 
+  // Stars
+  stars.forEach(s => {
+    const dx = (mouse.x - w / 2) * s.z * 0.01;
+    const dy = (mouse.y - h / 2) * s.z * 0.01;
+    ctx.fillStyle = `rgba(255,255,255,${0.15 + s.z * 0.4})`;
+    ctx.beginPath();
+    ctx.arc(s.x + dx, s.y + dy, s.r, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  // Shooting stars
   shooters.forEach((sh, i) => {
     sh.x += sh.vx;
     sh.y += sh.vy;
@@ -65,13 +88,13 @@ function draw() {
     ctx.strokeStyle = "rgba(255,255,255,.6)";
     ctx.beginPath();
     ctx.moveTo(sh.x, sh.y);
-    ctx.lineTo(sh.x - sh.vx*4, sh.y - sh.vy*4);
+    ctx.lineTo(sh.x - sh.vx * 4, sh.y - sh.vy * 4);
     ctx.stroke();
 
-    if (sh.life > 40) shooters.splice(i,1);
+    if (sh.life > 40) shooters.splice(i, 1);
   });
 
-  if (Math.random() < 0.005) spawnShooter();
+  if (Math.random() < 0.004) spawnShooter();
 
   requestAnimationFrame(draw);
 }
