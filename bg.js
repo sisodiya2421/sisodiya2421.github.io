@@ -24,12 +24,10 @@ function generateNoise() {
 
 function draw() {
   ctx.clearRect(0, 0, w, h);
-
   noise.forEach(n => {
     ctx.fillStyle = `rgba(255,255,255,${n.a})`;
     ctx.fillRect(n.x, n.y, 1, 1);
   });
-
   requestAnimationFrame(draw);
 }
 

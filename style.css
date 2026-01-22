@@ -6,15 +6,10 @@
   --accent: #6e6eff;
 }
 
-[data-theme="light"] {
-  --bg: #f6f7fb;
-  --fg: #121212;
-  --muted: #555;
-  --line: #ddd;
-  --accent: #5b5bff;
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
-
-* { box-sizing: border-box; margin: 0; }
 
 body {
   font-family: Inter, system-ui, sans-serif;
@@ -24,9 +19,9 @@ body {
     radial-gradient(900px 500px at 10% 20%, #0f1324 0%, transparent 55%),
     radial-gradient(600px 400px at 80% 80%, #0b0e1d 0%, transparent 60%),
     var(--bg);
-  transition: background .4s ease, color .3s ease;
 }
 
+/* Subtle grain canvas */
 canvas {
   position: fixed;
   inset: 0;
@@ -42,6 +37,7 @@ canvas {
   padding: 3rem 1.5rem 4rem;
 }
 
+/* Header */
 .header h1 {
   font-size: 2.2rem;
   font-weight: 600;
@@ -58,43 +54,39 @@ canvas {
   color: #cfcfd6;
 }
 
-/* Theme toggle */
-#themeToggle {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid var(--line);
-  color: var(--fg);
-  padding: .4rem .6rem;
-  border-radius: 6px;
-  cursor: pointer;
-  z-index: 10;
+/* Sections */
+section {
+  margin-top: 3rem;
 }
 
-/* Sections */
-section { margin-top: 3rem; }
-
 h2 {
-  font-size: .95rem;
-  letter-spacing: .04em;
+  font-size: .85rem;
+  letter-spacing: .08em;
   text-transform: uppercase;
   color: #cfd2ff;
   margin-bottom: 1.2rem;
 }
 
-/* Timeline */
-.timeline { border-left: 1px solid var(--line); }
+/* =========================
+   Timeline (FIXED SPACING)
+   ========================= */
+
+.timeline {
+  border-left: 1px solid var(--line);
+  padding-left: 1.4rem; /* ← space between line and content */
+}
 
 .row {
   display: grid;
-  grid-template-columns: 110px 20px 1fr;
+  grid-template-columns: 90px 24px 1fr;
   padding: .7rem 0;
+  align-items: flex-start;
 }
 
 .time {
   font-size: .8rem;
   color: var(--muted);
+  padding-top: .15rem;
 }
 
 .dot {
@@ -103,6 +95,11 @@ h2 {
   background: var(--accent);
   border-radius: 50%;
   margin-top: .45rem;
+}
+
+.content strong {
+  display: block;
+  font-weight: 500;
 }
 
 .content span {
@@ -135,10 +132,23 @@ h2 {
 }
 
 /* Education */
-.edu { font-size: .9rem; }
-.edu span { display: block; color: var(--muted); margin-top: .3rem; }
+.edu {
+  font-size: .9rem;
+}
+
+.edu span {
+  display: block;
+  margin-top: .3rem;
+  color: var(--muted);
+}
 
 /* Mobile */
 @media (max-width: 768px) {
-  .row { grid-template-columns: 80px 16px 1fr; }
+  .row {
+    grid-template-columns: 70px 20px 1fr;
+  }
+
+  .timeline {
+    padding-left: 1.1rem;
+  }
 }
